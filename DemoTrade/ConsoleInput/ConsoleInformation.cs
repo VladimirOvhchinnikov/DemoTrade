@@ -6,10 +6,10 @@ namespace DemoTrade
 {
     class ConsoleInformation
     {
+        User user = new User();
         private const string arrow = "--->>>";
         
-
-        public void outputmainMenu()
+        public void OutputmainMenu()
         {
             string
                 textSignUp = " Sign up ",
@@ -74,7 +74,7 @@ namespace DemoTrade
                 {
                     if (redPosition == 0)
                     {
-                        outputRegistrWindow();
+                        OutputRegistrWindow();
                     }
                     if (redPosition == 1)
                     {
@@ -88,17 +88,9 @@ namespace DemoTrade
             Environment.Exit(0);
         }
 
-      
-
-        private void outputRegistrWindow() 
+        private void OutputRegistrWindow() 
         {
             Console.Clear();
-
-            string
-                login,
-                password,
-                name,
-                surName;
 
             Point pointArrowLogin = new Point(0, 0);
             Point pointLogin = new Point(10, 0);
@@ -116,10 +108,13 @@ namespace DemoTrade
             Point pointSurname = new Point(10, 3);
             Point inputSurname = new Point(13, 3);
 
+            Point pointRegistration= new Point(0, 4);
+
             ConsoleColor colorLogin = ConsoleColor.Yellow;
             ConsoleColor colorPassword = ConsoleColor.Yellow;
             ConsoleColor colorName = ConsoleColor.Yellow;
             ConsoleColor colorSurname = ConsoleColor.Yellow;
+            ConsoleColor colorRegistration = ConsoleColor.Red;
 
             ConsoleKeyInfo keyInfo;
             int numberPosition =0;
@@ -137,11 +132,13 @@ namespace DemoTrade
                 outputString("Surname  -> ", colorSurname, pointSurname);
                 outputString(arrow, ConsoleColor.Yellow, pointArrowSurname);
 
+                outputString("Registration", colorRegistration, pointRegistration);
+
                 keyInfo = Console.ReadKey();
 
                 if (keyInfo.Key == ConsoleKey.DownArrow)
                 {
-                    if (numberPosition == 3)
+                    if (numberPosition == 4)
                     {
                         numberPosition = 0;
                     }
@@ -152,7 +149,7 @@ namespace DemoTrade
                 {
                     if (numberPosition == 0)
                     {
-                        numberPosition = 3;
+                        numberPosition = 4;
                     }
                     else numberPosition--;
                 } 
@@ -162,22 +159,22 @@ namespace DemoTrade
                     if(numberPosition == 0) 
                     {
                         Console.SetCursorPosition(inputLogin.coordinateX+9, inputLogin.coordinateY);
-                        login = Console.ReadLine();
+                        user.login = Console.ReadLine();
                     }
                     if (numberPosition == 1)
                     {
                         Console.SetCursorPosition(inputPassword.coordinateX + 9, inputPassword.coordinateY);
-                        password = Console.ReadLine();
+                        user.password = Console.ReadLine();
                     }
                     if (numberPosition == 2)
                     {
                         Console.SetCursorPosition(inputName.coordinateX + 9, inputName.coordinateY);
-                        name = Console.ReadLine();
+                        user.name = Console.ReadLine();
                     }
                     if (numberPosition == 3)
                     {
                         Console.SetCursorPosition(inputSurname.coordinateX + 9, inputSurname.coordinateY);
-                        surName = Console.ReadLine();
+                        user.surname = Console.ReadLine();
                     }
                 }
 
@@ -187,8 +184,7 @@ namespace DemoTrade
                     colorPassword = ConsoleColor.Yellow;
                     colorName = ConsoleColor.Yellow;
                     colorSurname = ConsoleColor.Yellow;
-                    //Console.SetCursorPosition(inputLogin.coordinateX+9, inputLogin.coordinateY);
-                    // string t = Console.ReadLine();
+                    colorRegistration = ConsoleColor.Red;
                 }
                 if (numberPosition == 1)
                 {
@@ -196,6 +192,7 @@ namespace DemoTrade
                     colorPassword = ConsoleColor.Gray;
                     colorName = ConsoleColor.Yellow;
                     colorSurname = ConsoleColor.Yellow;
+                    colorRegistration = ConsoleColor.Red;
                 }
                 if (numberPosition == 2)
                 {
@@ -203,6 +200,7 @@ namespace DemoTrade
                     colorPassword = ConsoleColor.Yellow;
                     colorName = ConsoleColor.Gray;
                     colorSurname = ConsoleColor.Yellow;
+                    colorRegistration = ConsoleColor.Red;
                 }
                 if (numberPosition == 3)
                 {
@@ -210,10 +208,18 @@ namespace DemoTrade
                     colorPassword = ConsoleColor.Yellow;
                     colorName = ConsoleColor.Yellow;
                     colorSurname = ConsoleColor.Gray;
+                    colorRegistration = ConsoleColor.Red;
+                }
+                if (numberPosition == 4)
+                {
+                    colorLogin = ConsoleColor.Yellow;
+                    colorPassword = ConsoleColor.Yellow;
+                    colorName = ConsoleColor.Yellow;
+                    colorSurname = ConsoleColor.Yellow;
+                    colorRegistration = ConsoleColor.Green;
                 }
             }
         }
-
 
         // вывод информации в консоль
         private void outputString(string outputStr, ConsoleColor color, Point point)

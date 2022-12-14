@@ -11,8 +11,6 @@ namespace DemoTrade
               surname,
               login,
               password;
-        public int age;
-
-
+       
     } 
 }
