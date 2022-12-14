@@ -6,23 +6,23 @@ namespace DemoTrade
 {
     class MenuRegistration : MenuBasic
     {
-        Point pointArrowLogin = new Point(0, 0);
-        Point pointLogin = new Point(10, 0);
-        Point inputLogin = new Point(13, 0);
+        readonly Point pointArrowLogin = new Point(0, 0);
+        readonly Point pointLogin = new Point(10, 0);
+        readonly Point inputLogin = new Point(13, 0);
 
-        Point pointArrowPassword = new Point(0, 1);
-        Point pointPassword = new Point(10, 1);
-        Point inputPassword = new Point(13, 1);
+        readonly Point pointArrowPassword = new Point(0, 1);
+        readonly Point pointPassword = new Point(10, 1);
+        readonly Point inputPassword = new Point(13, 1);
 
-        Point pointArrowName = new Point(0, 2);
-        Point pointName = new Point(10, 2);
-        Point inputName = new Point(13, 2);
+        readonly Point pointArrowName = new Point(0, 2);
+        readonly Point pointName = new Point(10, 2);
+        readonly Point inputName = new Point(13, 2);
 
-        Point pointArrowSurname = new Point(0, 3);
-        Point pointSurname = new Point(10, 3);
-        Point inputSurname = new Point(13, 3);
+        readonly Point pointArrowSurname = new Point(0, 3);
+        readonly Point pointSurname = new Point(10, 3);
+        readonly Point inputSurname = new Point(13, 3);
 
-        Point pointRegistration = new Point(0, 4);
+        readonly Point pointRegistration = new Point(0, 4);
 
         ConsoleColor colorLogin = ConsoleColor.Yellow;
         ConsoleColor colorPassword = ConsoleColor.Yellow;
@@ -31,36 +31,102 @@ namespace DemoTrade
         ConsoleColor colorRegistration = ConsoleColor.Red;
 
 
-        internal void InputStart()
+        public void MoveMenu()
         {
             Console.Clear();
-            outputString("Login    -> ", colorLogin, pointLogin);
-            outputString(arrow, ConsoleColor.Yellow, pointArrowLogin);
-
-            outputString("Password -> ", colorPassword, pointPassword);
-            outputString(arrow, ConsoleColor.Yellow, pointArrowPassword);
-
-            outputString("Name     -> ", colorName, pointName);
-            outputString(arrow, ConsoleColor.Yellow, pointArrowName);
-
-            outputString("Surname  -> ", colorSurname, pointSurname);
-            outputString(arrow, ConsoleColor.Yellow, pointArrowSurname);
-
-            outputString("Registration", colorRegistration, pointRegistration);
-        }
-
-        private int MoveMenu(int numberPosition)
-        {
-            InputStart();
-
+            User user = new User();
             ConsoleKeyInfo keyInfo;
-
+            int numberPosition = 0;
             while (true)
             {
+                outputString("Login    -> ", colorLogin, pointLogin);
+                outputString(arrow, ConsoleColor.Yellow, pointArrowLogin);
 
+                outputString("Password -> ", colorPassword, pointPassword);
+                outputString(arrow, ConsoleColor.Yellow, pointArrowPassword);
+
+                outputString("Name     -> ", colorName, pointName);
+                outputString(arrow, ConsoleColor.Yellow, pointArrowName);
+
+                outputString("Surname  -> ", colorSurname, pointSurname);
+                outputString(arrow, ConsoleColor.Yellow, pointArrowSurname);
+
+                outputString("Registration", colorRegistration, pointRegistration);
+
+                keyInfo = Console.ReadKey();
+
+                if (keyInfo.Key == ConsoleKey.DownArrow)
+                {
+                    if (numberPosition == 4)
+                    {
+                        numberPosition = 0;
+                    }
+                    else numberPosition++;
+                }
+
+                if (keyInfo.Key == ConsoleKey.UpArrow)
+                {
+                    if (numberPosition == 0)
+                    {
+                        numberPosition = 4;
+                    }
+                    else numberPosition--;
+                }
+
+                if (keyInfo.Key == ConsoleKey.Enter)
+                {
+                    if (numberPosition == 0)
+                    {
+                        Console.SetCursorPosition(inputLogin.coordinateX + 9, inputLogin.coordinateY);
+                        user.login = Console.ReadLine();
+                    }
+                    if (numberPosition == 1)
+                    {
+                        Console.SetCursorPosition(inputPassword.coordinateX + 9, inputPassword.coordinateY);
+                        user.password = Console.ReadLine();
+                    }
+                    if (numberPosition == 2)
+                    {
+                        Console.SetCursorPosition(inputName.coordinateX + 9, inputName.coordinateY);
+                        user.name = Console.ReadLine();
+                    }
+                    if (numberPosition == 3)
+                    {
+                        Console.SetCursorPosition(inputSurname.coordinateX + 9, inputSurname.coordinateY);
+                        user.surname = Console.ReadLine();
+                    }
+                }
+
+                EnterColor(numberPosition);
             }
+        }
 
-            return 0;
+        private void EnterColor(int numberPosition)
+        {
+            colorLogin = ConsoleColor.Yellow;
+            colorPassword = ConsoleColor.Yellow;
+            colorName = ConsoleColor.Yellow;
+            colorSurname = ConsoleColor.Yellow;
+            colorRegistration = ConsoleColor.Red;
+
+            if (numberPosition == 0)
+            {
+                colorLogin = ConsoleColor.Gray;
+            }
+            else if (numberPosition == 1)
+            {
+                colorPassword = ConsoleColor.Gray;
+            }
+            else if (numberPosition == 3)
+            {
+                colorSurname = ConsoleColor.Gray;
+            }
+            else if (numberPosition == 4)
+            {
+                colorRegistration = ConsoleColor.Green;
+            }
         }
     }
 }
+
+

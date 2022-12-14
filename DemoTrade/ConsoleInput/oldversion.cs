@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DemoTrade
 {
-    class ConsoleInformation
+    class oldversion
     {
         User user = new User();
         private const string arrow = "--->>>";

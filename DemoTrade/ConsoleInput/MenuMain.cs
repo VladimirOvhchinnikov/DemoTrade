@@ -47,7 +47,8 @@ namespace DemoTrade
             {
                 if (redPosition == 0)
                 {
-                    //
+                    MenuRegistration menuRegistration = new MenuRegistration();
+                    menuRegistration.MoveMenu();
                 }
                 if (redPosition == 1)
                 {
