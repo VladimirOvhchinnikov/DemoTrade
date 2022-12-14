@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoTrade.ConsoleInput;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -27,7 +28,7 @@ namespace DemoTrade
             outputString(textLogIn, ConsoleColor.White, pointLogIn);
         }
 
-        private int MoveMenu(int redPosition)
+        public int MoveMenu(int redPosition)
         {
             keyInfo = Console.ReadKey();
 
@@ -52,7 +53,8 @@ namespace DemoTrade
                 }
                 if (redPosition == 1)
                 {
-                    // sign
+                    MenuInput menuInput = new MenuInput();
+                    menuInput.MoveMenu();
                 }
             }
 
@@ -61,6 +63,8 @@ namespace DemoTrade
 
         public void OutputMenuMain()
         {
+            Console.Clear();
+            InputStart();
             int redPosition = 0;
             InputStart();
             while (true)

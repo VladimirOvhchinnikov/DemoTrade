@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoTrade
+namespace DemoTrade.ConsoleInput
 {
-    class MenuRegistration : MenuBasic
+    class MenuInput : MenuBasic
     {
-        
+
         public void MoveMenu()
         {
             Console.Clear();
             User user = new User();
             ConsoleKeyInfo keyInfo;
             int numberPosition = 0;
+
             while (true)
             {
                 outputString("Login    -> ", colorLogin, pointLogin);
@@ -21,19 +22,13 @@ namespace DemoTrade
                 outputString("Password -> ", colorPassword, pointPassword);
                 outputString(arrow, ConsoleColor.Yellow, pointArrowPassword);
 
-                outputString("Name     -> ", colorName, pointName);
-                outputString(arrow, ConsoleColor.Yellow, pointArrowName);
-
-                outputString("Surname  -> ", colorSurname, pointSurname);
-                outputString(arrow, ConsoleColor.Yellow, pointArrowSurname);
-
-                outputString("Registration", colorRegistration, pointRegistration);
+                outputString("Sign", colorSign, pointSign);
 
                 keyInfo = Console.ReadKey();
 
                 if (keyInfo.Key == ConsoleKey.DownArrow)
                 {
-                    if (numberPosition == 4)
+                    if (numberPosition == 2)
                     {
                         numberPosition = 0;
                     }
@@ -44,7 +39,7 @@ namespace DemoTrade
                 {
                     if (numberPosition == 0)
                     {
-                        numberPosition = 4;
+                        numberPosition = 2;
                     }
                     else numberPosition--;
                 }
@@ -61,18 +56,9 @@ namespace DemoTrade
                         Console.SetCursorPosition(inputPassword.coordinateX + 9, inputPassword.coordinateY);
                         user.password = Console.ReadLine();
                     }
-                    if (numberPosition == 2)
-                    {
-                        Console.SetCursorPosition(inputName.coordinateX + 9, inputName.coordinateY);
-                        user.name = Console.ReadLine();
-                    }
-                    if (numberPosition == 3)
-                    {
-                        Console.SetCursorPosition(inputSurname.coordinateX + 9, inputSurname.coordinateY);
-                        user.surname = Console.ReadLine();
-                    }
+
                 }
-                if (keyInfo.Key == ConsoleKey.Escape)
+                if(keyInfo.Key == ConsoleKey.Escape)
                 {
                     MenuMain menuMain = new MenuMain();
                     menuMain.OutputMenuMain();
@@ -86,9 +72,7 @@ namespace DemoTrade
         {
             colorLogin = ConsoleColor.Yellow;
             colorPassword = ConsoleColor.Yellow;
-            colorName = ConsoleColor.Yellow;
-            colorSurname = ConsoleColor.Yellow;
-            colorRegistration = ConsoleColor.Red;
+            colorSign = ConsoleColor.Red;
 
             if (numberPosition == 0)
             {
@@ -97,17 +81,11 @@ namespace DemoTrade
             else if (numberPosition == 1)
             {
                 colorPassword = ConsoleColor.Gray;
-            }
-            else if (numberPosition == 3)
+            } else if(numberPosition == 2)
             {
-                colorSurname = ConsoleColor.Gray;
-            }
-            else if (numberPosition == 4)
-            {
-                colorRegistration = ConsoleColor.Green;
+                colorSign = ConsoleColor.Green;
             }
         }
     }
+
 }
-
-

@@ -9,8 +9,10 @@ namespace DemoTrade
         public string
               name,
               surname,
-              login,
+              login, 
               password;
        
     } 
+
+
 }
