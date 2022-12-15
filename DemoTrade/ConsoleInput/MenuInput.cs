@@ -49,12 +49,12 @@ namespace DemoTrade.ConsoleInput
                     if (numberPosition == 0)
                     {
                         Console.SetCursorPosition(inputLogin.coordinateX + 9, inputLogin.coordinateY);
-                        user.login = Console.ReadLine();
+                        user.Login = Console.ReadLine();
                     }
                     if (numberPosition == 1)
                     {
                         Console.SetCursorPosition(inputPassword.coordinateX + 9, inputPassword.coordinateY);
-                        user.password = Console.ReadLine();
+                        user.Password = Console.ReadLine();
                     }
 
                 }

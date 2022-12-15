@@ -6,12 +6,12 @@ namespace DemoTrade
 {
     class User
     {
-        public string
-              name,
-              surname,
-              login, 
-              password;
-       
+
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+
     } 
 
 

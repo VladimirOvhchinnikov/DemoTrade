@@ -159,22 +159,22 @@ namespace DemoTrade
                     if(numberPosition == 0) 
                     {
                         Console.SetCursorPosition(inputLogin.coordinateX+9, inputLogin.coordinateY);
-                        user.login = Console.ReadLine();
+                        user.Login = Console.ReadLine();
                     }
                     if (numberPosition == 1)
                     {
                         Console.SetCursorPosition(inputPassword.coordinateX + 9, inputPassword.coordinateY);
-                        user.password = Console.ReadLine();
+                        user.Password = Console.ReadLine();
                     }
                     if (numberPosition == 2)
                     {
                         Console.SetCursorPosition(inputName.coordinateX + 9, inputName.coordinateY);
-                        user.name = Console.ReadLine();
+                        user.Name = Console.ReadLine();
                     }
                     if (numberPosition == 3)
                     {
                         Console.SetCursorPosition(inputSurname.coordinateX + 9, inputSurname.coordinateY);
-                        user.surname = Console.ReadLine();
+                        user.Surname = Console.ReadLine();
                     }
                 }
 

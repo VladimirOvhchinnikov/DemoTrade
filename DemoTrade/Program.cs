@@ -9,10 +9,12 @@ namespace DemoTrade
             Console.SetWindowSize(80,26);
             //User user = new User();
 
-            MenuMain main = new MenuMain();
-            main.OutputMenuMain();
+            //MenuMain main = new MenuMain();
+            //main.OutputMenuMain();
 
-            
+            SqLite sqLite = new SqLite();
+            sqLite.Connection();
+            sqLite.AddDatabase();
             
         }
     }
