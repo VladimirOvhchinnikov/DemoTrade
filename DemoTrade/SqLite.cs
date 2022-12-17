@@ -10,8 +10,6 @@ namespace DemoTrade
         SQLiteConnection connection;
         SQLiteCommand command;
 
-        //string insertSql = "INSERT INTO users (name, surname, login, password) VALUES";
-
         public SQLiteConnection Connection()
         {
             SQLiteConnection connection = new SQLiteConnection(@"Data Source=usersql.db.;Version=3; FailIfMissing=False");
@@ -36,14 +34,16 @@ namespace DemoTrade
         }
 
 
-        public bool SearchData( string desired, string columnName, string tableName)
+        public bool SearchData(string desired, string column)
         {
+            SQLiteConnection connection = Connection();
             SQLiteCommand command = new SQLiteCommand(connection);
-            string t=  command.CommandText = @"SELECT   * FROM" +"`"+tableName+"`" +"WHERE "+ columnName + "=" + desired ;
-            command.ExecuteNonQuery();
-            Console.WriteLine(t);
+            command.CommandType = System.Data.CommandType.Text;
+            
+            command.CommandText = "SELECT * FROM user WHERE "+column+" LIKE '" + desired + "'";
+            SQLiteDataReader reader = command.ExecuteReader();
 
-            return true;
+            return reader.HasRows;
         }
 
         public void checkSingInformation(User user) 

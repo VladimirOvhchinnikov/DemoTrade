@@ -1,5 +1,6 @@
 ﻿using System;
 using HashLib;
+using System.Data.SQLite;
 
 namespace DemoTrade
 {
@@ -14,12 +15,14 @@ namespace DemoTrade
             MenuMain main = new MenuMain();
             main.OutputMenuMain();
 
-            SqLite sqLite = new SqLite();
-            sqLite.Connection();
+            //SqLite sqLite = new SqLite();
+            //sqLite.Connection();
 
+            //SQLiteConnection connection = new SQLiteConnection(@"Data Source=usersql.db.;Version=3; FailIfMissing=False");
+            //connection.Open();
+            //SQLiteCommand command = new SQLiteCommand(connection);
+           
 
-            
-          
         }
     }
 }

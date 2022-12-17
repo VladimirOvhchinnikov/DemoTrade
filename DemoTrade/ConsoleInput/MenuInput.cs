@@ -63,7 +63,13 @@ namespace DemoTrade.ConsoleInput
                         user = hash.hashingUser(user);
                         SqLite sqLite = new SqLite();
                         sqLite.Connection();
-                        sqLite.AddDatabase(user);
+
+                        if (sqLite.SearchData(user.Login, "login") == true &&
+                             sqLite.SearchData(user.Password, "Password") == true)
+                        {
+                            Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                        }
+
                     }
 
                 }
