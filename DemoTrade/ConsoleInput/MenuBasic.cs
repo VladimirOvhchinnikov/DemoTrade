@@ -33,6 +33,7 @@ namespace DemoTrade
         internal ConsoleColor colorSurname = ConsoleColor.Yellow;
         internal ConsoleColor colorRegistration = ConsoleColor.Red;
         internal ConsoleColor colorSign = ConsoleColor.Red;
+
         internal void outputString(string outputStr, ConsoleColor color, Point point)
         {
             Console.ForegroundColor = color;

@@ -57,6 +57,15 @@ namespace DemoTrade.ConsoleInput
                         user.Password = Console.ReadLine();
                     }
 
+                    if(numberPosition == 2)
+                    {
+                        Hash hash = new Hash();
+                        user = hash.hashingUser(user);
+                        SqLite sqLite = new SqLite();
+                        sqLite.Connection();
+                        sqLite.AddDatabase(user);
+                    }
+
                 }
                 if(keyInfo.Key == ConsoleKey.Escape)
                 {
