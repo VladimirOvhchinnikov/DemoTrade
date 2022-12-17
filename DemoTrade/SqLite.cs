@@ -43,7 +43,7 @@ namespace DemoTrade
             command.CommandText = "SELECT * FROM user WHERE "+column+" LIKE '" + desired + "'";
             SQLiteDataReader reader = command.ExecuteReader();
 
-            return reader.HasRows;
+             return reader.HasRows;
         }
 
         public void checkSingInformation(User user) 

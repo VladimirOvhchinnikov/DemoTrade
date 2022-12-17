@@ -34,11 +34,46 @@ namespace DemoTrade
         internal ConsoleColor colorRegistration = ConsoleColor.Red;
         internal ConsoleColor colorSign = ConsoleColor.Red;
 
+
+        // Отрисовка строк в любом месте консоли
         internal void outputString(string outputStr, ConsoleColor color, Point point)
         {
             Console.ForegroundColor = color;
             Console.SetCursorPosition(point.coordinateX, point.coordinateY);
             Console.Write(outputStr);
+        }
+
+        // Движение по любому меню, где используется числовое позиционирвоание
+        public int enterPositionMenu(int numberPosition, int lengthMenu, ConsoleKeyInfo keyInfo) 
+        {
+            if (keyInfo.Key == ConsoleKey.DownArrow)
+            {
+                if (numberPosition == lengthMenu)
+                {
+                    numberPosition = 0;
+                }
+                else numberPosition++;
+            }
+
+            if (keyInfo.Key == ConsoleKey.UpArrow)
+            {
+                if (numberPosition == 0)
+                {
+                    numberPosition = lengthMenu;
+                }
+                else numberPosition--;
+            }
+
+            return numberPosition;
+        }
+
+        public void changeColor(int numberPosition, int MenuLength)
+        {
+            for(int i=0; i<MenuLength; i++)
+            {
+                if (i == numberPosition) { 
+                }
+            }
         }
     }
 

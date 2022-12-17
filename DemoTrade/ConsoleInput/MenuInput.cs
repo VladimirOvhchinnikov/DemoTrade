@@ -26,23 +26,7 @@ namespace DemoTrade.ConsoleInput
 
                 keyInfo = Console.ReadKey();
 
-                if (keyInfo.Key == ConsoleKey.DownArrow)
-                {
-                    if (numberPosition == 2)
-                    {
-                        numberPosition = 0;
-                    }
-                    else numberPosition++;
-                }
-
-                if (keyInfo.Key == ConsoleKey.UpArrow)
-                {
-                    if (numberPosition == 0)
-                    {
-                        numberPosition = 2;
-                    }
-                    else numberPosition--;
-                }
+                numberPosition = enterPositionMenu(numberPosition, 2, keyInfo);
 
                 if (keyInfo.Key == ConsoleKey.Enter)
                 {
