@@ -45,10 +45,6 @@ namespace DemoTrade
 
              return reader.HasRows;
         }
-
-        public void checkSingInformation(User user) 
-        {
-
-        }
+ 
     }
 }
