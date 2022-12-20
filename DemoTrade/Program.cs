@@ -13,8 +13,8 @@ namespace DemoTrade
             Console.SetWindowSize(80,26);
             //User user = new User();
 
-            //MenuMain main = new MenuMain();
-            //main.OutputMenuMain();
+            MenuMain main = new MenuMain();
+            main.OutputMenuMain();
 
             //SqLite sqLite = new SqLite();
             //sqLite.Connection();
@@ -23,7 +23,9 @@ namespace DemoTrade
             //connection.Open();
             //SQLiteCommand command = new SQLiteCommand(connection);
 
-            ConsoleWorkBase consoleWork = new ConsoleWorkBase(); 
+            //ConsoleWorkBase consoleWork = new ConsoleWorkBase();
+            //ConsoleTime consoleTime = new ConsoleTime();
+            //consoleTime.threadStartRealTime();
         }
     }
 }

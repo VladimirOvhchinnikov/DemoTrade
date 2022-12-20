@@ -4,8 +4,8 @@ using System.Text;
 
 namespace DemoTrade.ConsoleWork
 {
-    class ConsoleWorkBase
-    {
+     class ConsoleWorkBase
+    { 
         //Свойства класса
         private readonly Dictionary<int, string> nameAssets = new Dictionary<int, string>()
         {
@@ -50,9 +50,11 @@ namespace DemoTrade.ConsoleWork
         public ConsoleWorkBase()
         {
             GenerationWorkBase();
-
+            ConsoleTime time = new ConsoleTime();
+            time.threadStartRealTime();
             /*Запуск меню */
             MoveButtonWorkBase();
+           
         }
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoTrade.ConsoleWork;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -51,7 +52,7 @@ namespace DemoTrade.ConsoleInput
                         if (sqLite.SearchData(user.Login, "login") == true &&
                              sqLite.SearchData(user.Password, "Password") == true)
                         {
-                            Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                            ConsoleWorkBase workBase = new ConsoleWorkBase();
                         }
 
                     }
