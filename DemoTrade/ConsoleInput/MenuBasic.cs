@@ -67,14 +67,6 @@ namespace DemoTrade
             return numberPosition;
         }
 
-        public void changeColor(int numberPosition, int MenuLength)
-        {
-            for(int i=0; i<MenuLength; i++)
-            {
-                if (i == numberPosition) { 
-                }
-            }
-        }
     }
 
 }
