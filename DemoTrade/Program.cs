@@ -2,6 +2,9 @@
 using HashLib;
 using System.Data.SQLite;
 using DemoTrade.ConsoleWork;
+using Binance.Net;
+using Binance.Net.Clients.SpotApi;
+using DemoTrade.ConsoleWorks;
 
 namespace DemoTrade
 {
@@ -13,19 +16,22 @@ namespace DemoTrade
             Console.SetWindowSize(80,26);
             //User user = new User();
 
-            MenuMain main = new MenuMain();
-            main.OutputMenuMain();
+            // MenuMain main = new MenuMain();
+            // main.OutputMenuMain();
 
-            //SqLite sqLite = new SqLite();
-            //sqLite.Connection();
+            //ConsoleWorkBase consoleWorkBase = new ConsoleWorkBase();
 
-            //SQLiteConnection connection = new SQLiteConnection(@"Data Source=usersql.db.;Version=3; FailIfMissing=False");
-            //connection.Open();
-            //SQLiteCommand command = new SQLiteCommand(connection);
+            //binanceapi binanceapi = new binanceapi();
+            //binanceapi.inputPriceinConsole();
 
-            //ConsoleWorkBase consoleWork = new ConsoleWorkBase();
-            //ConsoleTime consoleTime = new ConsoleTime();
-            //consoleTime.threadStartRealTime();
+
+            //Binance binance = new Binance();
+            //binance.parserStringPricesJson(binance.getRequest());
+
+            //ConsoleWorkBases workBases = new ConsoleWorkBases();
+            //workBases.inputSymbol("ETHwBTC", "0.07212600", "0.168");
+            jsonParser jsonParser = new jsonParser();
+            jsonParser.parserStringProcentJson();
         }
     }
 }

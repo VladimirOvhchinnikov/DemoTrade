@@ -50,8 +50,14 @@ namespace DemoTrade.ConsoleWork
         public ConsoleWorkBase()
         {
             GenerationWorkBase();
-            ConsoleTime time = new ConsoleTime();
-            time.threadStartRealTime();
+
+            binanceapi binanceapi = new binanceapi();
+            binanceapi.threadStartPrice();
+
+            /*Запуск времени*/
+             //ConsoleTime time = new ConsoleTime();
+             //time.threadStartRealTime();
+            
             /*Запуск меню */
             MoveButtonWorkBase();
            
