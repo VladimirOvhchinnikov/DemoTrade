@@ -30,8 +30,11 @@ namespace DemoTrade
 
             //ConsoleWorkBases workBases = new ConsoleWorkBases();
             //workBases.inputSymbol("ETHwBTC", "0.07212600", "0.168");
-            jsonParser jsonParser = new jsonParser();
-            jsonParser.parserStringProcentJson();
+            //jsonParser jsonParser = new jsonParser();
+            //jsonParser.parserStringProcentJson();
+
+            ConsoleWorkBases consoleWorkBases = new ConsoleWorkBases();
+           
         }
     }
 }

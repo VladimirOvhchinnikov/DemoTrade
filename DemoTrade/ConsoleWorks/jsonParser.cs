@@ -6,9 +6,9 @@ namespace DemoTrade.ConsoleWorks
 {
     class jsonParser
     {
-        Dictionary<int, string> resultSymbolprice;
-        Dictionary<int, string> resultSymbol;
-        Dictionary<int, string> resultProcent;
+        internal Dictionary<int, string> resultSymbolprice;
+        internal Dictionary<int, string> resultSymbol;
+        internal Dictionary<int, string> resultProcent;
         internal void parserStringPricesJson(string price)
         {
             int lastIndex_1; /*индекс {*/
@@ -61,10 +61,8 @@ namespace DemoTrade.ConsoleWorks
             }
         }
 
-        internal void parserStringProcentJson()
+        internal void parserStringProcentJson(string procent24hr)
         {
-            DemoTrade.Binance binance = new Binance();
-           string procent24hr=binance.WebRequestProcent24hr();
 
             int lastIndex_1; /*индекс {*/
             int lastIndex_2; /*индекс }*/
@@ -92,16 +90,13 @@ namespace DemoTrade.ConsoleWorks
                 lastindex_4 = resultBreakdownss[indexDictionary].LastIndexOf(",");
                 resultBreakdownss[indexDictionary] = resultBreakdownss[indexDictionary].Substring(21, lastindex_4 - 22);
 
-
-
                 procent24hr = procent24hr.Remove(lastIndex_1, lastIndex_2);
-
-                Console.WriteLine(resultBreakdownss[indexDictionary]);
 
                 indexDictionary++;
             }
+            resultProcent = resultBreakdownss;
 
-            Console.WriteLine("dg");
+
         }
     }
 }
